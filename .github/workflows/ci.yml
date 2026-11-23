@@ -1,0 +1,35 @@
+﻿name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Syntax checks
+        shell: pwsh
+        run: |
+          node --check server.mjs
+          node --check tests.mjs
+          node --check public/app.js
+          node --check public/sculpture.js
+          node --check public/polish.js
+          node --check public/desktop-ui.js
+          node --check desktop/main.cjs
+          node --check desktop/preload.cjs
+          node --check desktop/security.cjs
+          node --check desktop/tests.mjs
+      - name: Security guard unit checks
+        shell: pwsh
+        run: |
+          node -e "const S=require('./desktop/security.cjs'); const assert=require('node:assert/strict'); assert.throws(()=>S.provider('__proto__')); assert.throws(()=>S.checkChat({provider:'groq',model:'bad',messages:[]})); assert.equal(S.within('C:\\\\a','C:\\\\b'),false); console.log('ok')"

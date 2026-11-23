@@ -1,0 +1,15 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 320" width="1280" height="320">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="100%" stop-color="#18243b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="320" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="#d97757"/>
+  <rect x="48" y="48" width="1184" height="224" fill="none" stroke="#23304d" stroke-width="2"/>
+  <text x="80" y="128" font-family="Segoe UI, Arial, sans-serif" font-size="56" font-weight="700" fill="#f2ede4">RELAY STUDIO</text>
+  <text x="80" y="168" font-family="Segoe UI, Arial, sans-serif" font-size="24" fill="#9fb0d0">Desktop coding workbench for remote inference with local control</text>
+  <text x="80" y="214" font-family="Consolas, monospace" font-size="18" fill="#7f93b8">Windows 11 x64  ·  Electron 45.4.1  ·  Groq / OpenRouter  ·  Reviewed saves</text>
+  <text x="80" y="244" font-family="Consolas, monospace" font-size="18" fill="#d97757">UNSIGNED EVALUATION BUILD  ·  NO AUTONOMOUS EXECUTION</text>
+</svg>

@@ -1,0 +1,41 @@
+﻿# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*~
+
+# Node / Electron
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+out/
+release/
+*.log
+
+# Build artifacts
+*.exe
+*.msi
+*.dmg
+*.AppImage
+*.snap
+*.zip
+*.7z
+
+# Local / secrets
+.env
+.env.*
+*.local.json
+%APPDATA%/
+
+# Test/runtime caches
+node_modules/desktop-runtime/
+.playwright/
+
+# Python helper caches
+__pycache__/
+*.py[cod]

@@ -1,0 +1,28 @@
+﻿name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package source zip
+        shell: pwsh
+        run: |
+          $name = "Relay-Studio-Desktop-${{ github.ref_name }}-Source.zip"
+          Compress-Archive -Path * -DestinationPath $name -Force
+          Get-FileHash $name -Algorithm SHA256 | Format-List | Out-File SHA256SUMS.txt -Encoding utf8
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            Relay-Studio-Desktop-*-Source.zip
+            SHA256SUMS.txt
